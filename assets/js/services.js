@@ -253,3 +253,11 @@ storefrontApp.service('orderService', ['$http', function ($http) {
         }
     }
 }]);
+
+storefrontApp.service('customerReviewService', ['$http', function($http) {
+    return {
+        postReview: function (review) {
+            return $http.post('storefrontapi/customer-reviews/', review);
+        }
+    }
+}]);
