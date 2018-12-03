@@ -9,7 +9,8 @@
             "assets/ideal-image-slider-captions.js",
             "assets/js/*.js",
             "assets/js/products-compare/*.js",
-            "assets/js/lists/add-to-list.js"
+            "assets/js/lists/add-to-list.js",
+            "assets/js/customer-review/*.js"
         ]
     },
     {
