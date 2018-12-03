@@ -794,5 +794,16 @@
         "close_cart": "Close Cart",
         "countinue_shop": "Continue shopping"
 
+    },
+    "customerReview": {
+        "customer_reviews": "Customer reviews",
+        "title": "Provide your feedback",
+        "author_nickname": "Your name",
+        "content": "Your review",
+        "send": "Send",
+        "thank_you_for_review": "Thank you for your review",
+        "author_nickname_required_message": "Please enter your name",
+        "content_required_message": "Please enter the review",
+        "server_error_message": "Error while adding your review"
     }
 }
