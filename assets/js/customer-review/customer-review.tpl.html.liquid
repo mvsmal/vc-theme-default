@@ -1,0 +1,51 @@
+<form accept-charset="UTF8" name="$ctrl.form" novalidate="novalidate" ng-submit="$ctrl.submit($event)">
+    <h4 ng-if="$ctrl.reviewSent">{{ 'customerReview.thank_you_for_review' | t }}</h4>
+    <div ng-if="!$ctrl.reviewSent">
+        <h4>{{ 'customerReview.title' | t }}</h4>
+        <p class="field__message--error" ng-if="!$ctrl.form.$dirty && $ctrl.error">
+            {{ 'customerReview.server_error_message' | t }}
+        </p>
+        <div class="fieldset">
+            <div class="field field--required"
+                ng-class="{ 'field--show-floating-label': !$ctrl.form.AuthorNickname.$error.required, 'field--error': ($ctrl.form.AuthorNickname.$dirty || $ctrl.form.$submitted) && $ctrl.form.AuthorNickname.$invalid }">
+                <div class="field__input-wrapper">
+                    <label class="field__label" for="AuthorNickname">
+                        {{ 'customerReview.author_nickname' | t }}
+                    </label>
+                    <input class="field__input" id="AuthorNickname" name="AuthorNickname"
+                        required="required" size="30" type="text" ng-model="$ctrl.authorNickname" />
+                </div>
+                <p class="field__message field__message--error"
+                    ng-if="($ctrl.form.AuthorNickname.$dirty || $ctrl.form.$submitted) && $ctrl.form.AuthorNickname.$error.required">
+                    {{ 'customerReview.author_nickname_required_message' | t }}
+                </p>
+            </div>
+            <div class="field field--required"
+                ng-class="{ 'field--show-floating-label': !$ctrl.form.Content.$error.required, 'field--error': ($ctrl.form.Content.$dirty || $ctrl.form.$submitted) && $ctrl.form.Content.$invalid }">
+                <div class="field__input-wrapper">
+                    <label class="field__label" for="Content">
+                        {{ 'customerReview.content' | t }}
+                    </label>
+                    <input class="field__input" id="Content" name="Content" required="required"
+                        size="1000" type="text" ng-model="$ctrl.content" />
+                </div>
+                <p class="field__message field__message--error"
+                    ng-if="($ctrl.form.Content.$dirty || $ctrl.form.$submitted) && $ctrl.form.Content.$error.required">
+                    {{ 'customerReview.content_required_message' | t }}
+                </p>
+            </div>
+            <button
+                class="field__input-btn btn btn--default"
+                type="submit"
+                ng-class="{ 'btn--loading': $ctrl.processing, 'btn--disabled': $ctrl.form.$invalid }"
+                {% comment %} ng-disabled="$ctrl.form.$invalid || $ctrl.processing" {% endcomment %}
+            >
+                <span class="btn__content visually-hidden-on-mobile">
+                    {{ 'customerReview.send' | t }}
+                </span>
+                <i class="btn__content shown-on-mobile icon icon--arrow"></i>
+                <i class="btn__spinner icon icon--button-spinner"></i>
+            </button>
+        </div>
+    </div>
+</form>
